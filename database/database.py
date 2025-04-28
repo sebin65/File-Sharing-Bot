@@ -1,11 +1,11 @@
-#(©)CodeXBotz
+postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}/${{PGDATABASE}}#(©)CodeXBotz
 
 import pymongo, os
 from config import DB_URI, DB_NAME
 
 dbclient = pymongo.MongoClient(DB_URI)
 database = dbclient[DB_NAME]
-user_data = database['users']
+user_data = database['mongodb+srv://John0:<db_password>@cluster0.gu7ijsd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0']
 
 async def present_user(user_id : int):
     found = user_data.find_one({'_id': user_id})
